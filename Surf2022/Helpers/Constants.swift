@@ -11,15 +11,21 @@ enum K {
     enum Colors {
         static let red: UIColor = .myRed
         static let gray: UIColor = .myGray
+        static let dateLabel: UIColor = .dateLabel
     }
     
     enum FontSize {
         static let underlineErrorLabel: CGFloat = 12
         static let buttonTitle: CGFloat = 16
+        static let titleLabelCell: CGFloat = 12
+        static let titleLabelDetailVC: CGFloat = 16
+        static let dateLabelDetailVC: CGFloat = 10
+        static let descriptionLabelDetailVC: CGFloat = 12
     }
     
     enum Text {
         static let titleLoginVC = "Вход"
+        static let titleHomeVC = "Главная"
         static let authButton = "Вход"
         static let loginTextFieldPlaceholder = "Логин"
         static let passwordTextFieldPlaceholder = "Пароль"
@@ -47,4 +53,15 @@ enum K {
         
         static let heightUnderline: CGFloat = 0.98
     }
+    
+    
+    enum MockData {
+        enum MockImage: String {
+            case img1, img2, img3, img4, img5, img6, img7, img8, img9, img10
+        }
+        
+        static let mockTitle = "Lorem ipsum dolor sit amet"
+        static let mockDescription = "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet."
+    }
+    
 }

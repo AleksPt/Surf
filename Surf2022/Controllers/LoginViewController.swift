@@ -184,9 +184,12 @@ final class LoginViewController: UIViewController {
     
     @objc private func authButtonPressed() {
         guard verifyInput() else {
-            updateUiAuthButton(isFinished: false, sender: authButton)
             return
         }
+        
+        let homeVC = HomeViewController()
+        navigationController?.pushViewController(homeVC, animated: true)
+        
     }
 }
 
