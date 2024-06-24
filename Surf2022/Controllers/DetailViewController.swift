@@ -28,13 +28,14 @@ final class DetailViewController: UIViewController {
     
     private lazy var descriptionTextView: UITextView = {
         let element = UITextView()
-        element.textContainer.lineFragmentPadding = 0
+        element.textContainerInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 5)
         element.font = .systemFont(ofSize: K.FontSize.descriptionLabelDetailVC, weight: .regular)
         let attributedString = NSMutableAttributedString(string: descriptionText)
         let paragraphStyle = NSMutableParagraphStyle()
-        paragraphStyle.lineSpacing = 10
+        paragraphStyle.lineSpacing = 20
         attributedString.addAttribute(.paragraphStyle, value: paragraphStyle, range: NSRange(location: 0, length: attributedString.length))
         element.attributedText = attributedString
+        
         return element
     }()
     
@@ -54,6 +55,12 @@ final class DetailViewController: UIViewController {
         setupViews()
         setupConstraints()
     }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        descriptionTextView.setContentOffset(.zero, animated: false)
+
+       }
     
     // MARK: - Public methods
     func configureVC(_ model: CollectionData) {
@@ -80,7 +87,7 @@ private extension DetailViewController {
         view.addSubview(titleLabel)
         view.addSubview(dateLabel)
         view.addSubview(descriptionTextView)
-        
+
         setupNavigationBar()
     }
     
@@ -123,7 +130,7 @@ private extension DetailViewController {
         }
         
         descriptionTextView.snp.makeConstraints {
-            $0.leading.equalTo(imageView.snp.leading)
+            $0.leading.equalTo(imageView.snp.leading).offset(-4)
             $0.trailing.equalTo(imageView.snp.trailing)
             $0.top.equalTo(titleLabel.snp.bottom).offset(8)
             $0.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottom)

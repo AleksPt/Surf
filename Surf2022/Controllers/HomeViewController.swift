@@ -25,6 +25,7 @@ final class HomeViewController: UIViewController {
         let element = UICollectionView(frame: .zero, collectionViewLayout: layout)
         element.register(Cell.self, forCellWithReuseIdentifier: Cell.description())
         element.delaysContentTouches = false
+        element.refreshControl = refresh
         return element
     }()
     
@@ -99,7 +100,7 @@ private extension HomeViewController {
 private extension HomeViewController {
     func setupConstraints() {
         collectionView.snp.makeConstraints {
-            $0.top.equalTo(view.safeAreaLayoutGuide.snp.top).offset(24)
+            $0.top.equalTo(view.safeAreaLayoutGuide.snp.top)
             $0.leading.trailing.equalToSuperview().inset(16)
             $0.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottom)
         }
