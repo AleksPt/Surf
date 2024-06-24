@@ -14,6 +14,7 @@ final class LoginViewController: UIViewController {
     private let loginTextField = UITextField(
         placeholder: K.Text.loginTextFieldPlaceholder
     )
+    
     private lazy var underlineLogin: UIView = {
         let element = UIView()
         element.backgroundColor = .myGray
@@ -85,6 +86,92 @@ final class LoginViewController: UIViewController {
         passwordTextField.delegate = self
     }
     
+    private func updateConstraints(login: Bool, password: Bool) {
+        guard login else {
+            passwordTextField.snp.updateConstraints {
+                $0.top.equalTo(loginTextField.snp.bottom).offset(
+                    K.Constraints.topPasswordTextFieldNew)
+            }
+            return
+        }
+        
+        guard password else {
+            passwordTextField.snp.updateConstraints {
+                $0.top.equalTo(loginTextField.snp.bottom).offset(
+                    K.Constraints.topPasswordTextField)
+            }
+            authButton.snp.updateConstraints {
+                $0.top.equalTo(passwordTextField.snp.bottom).offset(
+                    K.Constraints.topAuthButtonNew)
+            }
+            return
+        }
+        
+        passwordTextField.snp.updateConstraints {
+            $0.top.equalTo(loginTextField.snp.bottom).offset(
+                K.Constraints.topPasswordTextField)
+        }
+        authButton.snp.updateConstraints {
+            $0.top.equalTo(passwordTextField.snp.bottom).offset(
+                K.Constraints.topAuthButton)
+        }
+    }
+    
+    private func updateUiTextFields(login: Bool, password: Bool) {
+        guard login else {
+            loginUnderlineErrorLabel.isHidden = false
+            underlineLogin.backgroundColor = K.Colors.red
+            loginTextField.becomeFirstResponder()
+            return
+        }
+        
+        loginUnderlineErrorLabel.isHidden = true
+        underlineLogin.backgroundColor = K.Colors.gray
+        
+        guard password else {
+            passwordUnderlineErrorLabel.isHidden = false
+            underlinePassword.backgroundColor = K.Colors.red
+            passwordTextField.becomeFirstResponder()
+            return
+        }
+        
+        passwordUnderlineErrorLabel.isHidden = true
+        underlinePassword.backgroundColor = K.Colors.gray
+    }
+    
+    private func updateUiAuthButton(isFinished: Bool, sender: UIButton) {
+        if isFinished {
+            activityIndicator.stopAnimating()
+            sender.setTitleColor(.white, for: .normal)
+            sender.isEnabled = true
+        } else {
+            activityIndicator.startAnimating()
+            sender.setTitleColor(.clear, for: .normal)
+            sender.isEnabled = false
+        }
+    }
+    
+    private func verifyInput() -> Bool {
+        guard let loginText = loginTextField.text, !loginText.isEmpty else {
+            updateUiTextFields(login: false, password: false)
+            updateConstraints(login: false, password: false)
+            return false
+        }
+        
+        updateUiTextFields(login: true, password: false)
+        
+        guard let passwordText = passwordTextField.text, !passwordText.isEmpty else {
+            updateUiTextFields(login: true, password: false)
+            updateConstraints(login: true, password: false)
+            return false
+        }
+        
+        updateUiTextFields(login: true, password: true)
+        updateConstraints(login: true, password: true)
+        
+        return true
+    }
+    
     // MARK: - Actions
     @objc private func showPassword() {
         passwordTextField.becomeFirstResponder()
@@ -95,51 +182,11 @@ final class LoginViewController: UIViewController {
         )
     }
     
-    @objc private func login() {
-        
-        guard let loginText = loginTextField.text, !loginText.isEmpty else {
-            loginUnderlineErrorLabel.isHidden = false
-            underlineLogin.backgroundColor = .myRed
-            loginTextField.becomeFirstResponder()
-            
-            passwordTextField.snp.updateConstraints {
-                $0.top.equalTo(loginTextField.snp.bottom).offset(K.Constraints.topPasswordTextFieldNew)
-            }
-            
+    @objc private func authButtonPressed() {
+        guard verifyInput() else {
+            updateUiAuthButton(isFinished: false, sender: authButton)
             return
         }
-        
-        loginUnderlineErrorLabel.isHidden = true
-        underlineLogin.backgroundColor = .myGray
-        
-        guard let passwordText = passwordTextField.text, !passwordText.isEmpty else {
-            passwordUnderlineErrorLabel.isHidden = false
-            underlinePassword.backgroundColor = .myRed
-            passwordTextField.becomeFirstResponder()
-            
-            passwordTextField.snp.updateConstraints {
-                $0.top.equalTo(loginTextField.snp.bottom).offset(K.Constraints.topPasswordTextField)
-            }
-            authButton.snp.updateConstraints {
-                $0.top.equalTo(passwordTextField.snp.bottom).offset(K.Constraints.topAuthButtonNew)
-            }
-            
-            return
-        }
-        
-        passwordTextField.snp.updateConstraints {
-            $0.top.equalTo(loginTextField.snp.bottom).offset(K.Constraints.topPasswordTextField)
-        }
-        authButton.snp.updateConstraints {
-            $0.top.equalTo(passwordTextField.snp.bottom).offset(K.Constraints.topAuthButton)
-        }
-        
-        passwordUnderlineErrorLabel.isHidden = true
-        underlinePassword.backgroundColor = .myGray
-        
-        activityIndicator.startAnimating()
-        authButton.setTitleColor(.clear, for: .normal)
-        authButton.isEnabled = false
     }
 }
 
@@ -169,7 +216,7 @@ private extension LoginViewController {
         passwordTextField.rightViewPadding = 16
         
         eyeButton.addTarget(self, action: #selector(showPassword), for: .touchUpInside)
-        authButton.addTarget(self, action: #selector(login), for: .touchUpInside)
+        authButton.addTarget(self, action: #selector(authButtonPressed), for: .touchUpInside)
         
         title = K.Text.titleLoginVC
     }
