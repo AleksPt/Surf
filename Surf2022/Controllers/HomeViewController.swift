@@ -16,6 +16,13 @@ final class HomeViewController: UIViewController {
         return element
     }()
     
+    private lazy var activityIndicator: UIActivityIndicatorView = {
+        let element = UIActivityIndicatorView()
+        element.style = .large
+        element.hidesWhenStopped = true
+        return element
+    }()
+    
     private lazy var collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.estimatedItemSize = UICollectionViewFlowLayout.automaticSize
@@ -26,8 +33,48 @@ final class HomeViewController: UIViewController {
         element.register(Cell.self, forCellWithReuseIdentifier: Cell.description())
         element.delaysContentTouches = false
         element.refreshControl = refresh
+        element.showsVerticalScrollIndicator = false
         return element
     }()
+    
+    private lazy var errorLoadFeedMainStack: UIStackView = {
+        let element = UIStackView()
+        element.axis = .vertical
+        element.spacing = 24
+        element.distribution = .fillProportionally
+        return element
+    }()
+    
+    private lazy var errorLoadFeedSecondStack: UIStackView = {
+        let element = UIStackView()
+        element.axis = .vertical
+        element.distribution = .fillProportionally
+        element.spacing = 12
+        return element
+    }()
+    
+    private lazy var errorLoadFeedSmile: UIImageView = {
+        let element = UIImageView()
+        element.image = .smileUnhappy
+        element.contentMode = .scaleAspectFit
+        return element
+    }()
+    
+    private lazy var errorLoadFeedLabel: UILabel = {
+        let element = UILabel()
+        element.text = "Не удалось загрузить ленту\nОбновите экран или попробуйте позже"
+        element.numberOfLines = 0
+        element.textColor = K.Colors.errorLoadFeedLabel
+        element.font = .systemFont(ofSize: K.FontSize.errorLoadFeedLabel, weight: .regular)
+        element.textAlignment = .center
+        return element
+    }()
+    
+    private let updateButton = UIButton(
+        text: "Обновить",
+        size: K.FontSize.buttonTitle,
+        weight: .semibold
+    )
     
     // MARK: - Private properties
     private let collectionDataSource = CollectionData.getCollection()
@@ -79,8 +126,16 @@ private extension HomeViewController {
         view.backgroundColor = .systemBackground
         
         view.addSubview(collectionView)
+        view.addSubview(errorLoadFeedMainStack)
+        errorLoadFeedMainStack.addArrangedSubview(errorLoadFeedSecondStack)
+        errorLoadFeedMainStack.addArrangedSubview(updateButton)
+        errorLoadFeedSecondStack.addArrangedSubview(errorLoadFeedSmile)
+        errorLoadFeedSecondStack.addArrangedSubview(errorLoadFeedLabel)
+        view.addSubview(activityIndicator)
         
         setupNavigationBar()
+        
+        errorLoadFeedMainStack.isHidden = true
     }
     
     func setupNavigationBar() {
@@ -103,6 +158,19 @@ private extension HomeViewController {
             $0.top.equalTo(view.safeAreaLayoutGuide.snp.top)
             $0.leading.trailing.equalToSuperview().inset(16)
             $0.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottom)
+        }
+        
+        errorLoadFeedMainStack.snp.makeConstraints {
+            $0.center.equalToSuperview()
+            $0.leading.trailing.equalToSuperview().inset(16)
+        }
+        
+        updateButton.snp.makeConstraints {
+            $0.height.equalTo(K.Constraints.heightButton)
+        }
+        
+        activityIndicator.snp.makeConstraints {
+            $0.edges.equalToSuperview()
         }
     }
 }

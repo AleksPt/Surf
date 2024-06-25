@@ -12,6 +12,7 @@ enum K {
         static let red: UIColor = .myRed
         static let gray: UIColor = .myGray
         static let dateLabel: UIColor = .dateLabel
+        static let errorLoadFeedLabel: UIColor = .errorLoadFeedLabel
     }
     
     enum FontSize {
@@ -21,6 +22,7 @@ enum K {
         static let titleLabelDetailVC: CGFloat = 16
         static let dateLabelDetailVC: CGFloat = 10
         static let descriptionLabelDetailVC: CGFloat = 12
+        static let errorLoadFeedLabel: CGFloat = 14
     }
     
     enum Text {
