@@ -21,7 +21,7 @@ final class DetailViewController: UIViewController {
     
     private lazy var titleLabel: UILabel = {
         let element = UILabel()
-        element.font = UIFont(name: K.Font.medium, size: K.FontSize.titleLabelDetailVC)
+        element.font = UIFont(name: K.Font.medium, size: K.FontSize.size16)
         element.numberOfLines = 0
         return element
     }()
@@ -33,7 +33,7 @@ final class DetailViewController: UIViewController {
         paragraphStyle.lineSpacing = 10
         let attributes: [NSAttributedString.Key: Any] = [
             .paragraphStyle: paragraphStyle,
-            .font: UIFont(name: K.Font.regular, size: K.FontSize.descriptionLabelDetailVC)
+            .font: UIFont(name: K.Font.regular, size: K.FontSize.size12)
         ]
         let attributedString = NSAttributedString(string: descriptionText, attributes: attributes)
         element.attributedText = attributedString
@@ -42,8 +42,8 @@ final class DetailViewController: UIViewController {
     
     private lazy var dateLabel: UILabel = {
         let element = UILabel()
-        element.textColor = K.Colors.dateLabel
-        element.font = UIFont(name: K.Font.medium, size: K.FontSize.dateLabelDetailVC)
+        element.textColor = K.Colors.b3b3b3
+        element.font = UIFont(name: K.Font.medium, size: K.FontSize.size10)
         return element
     }()
     
@@ -99,14 +99,14 @@ private extension DetailViewController {
     func setupNavigationBar() {
         navigationController?.navigationBar.tintColor = .black
         navigationItem.rightBarButtonItem = UIBarButtonItem(
-            image: UIImage(systemName: "magnifyingglass"),
+            image: K.Image.searchLine,
             style: .done,
             target: self,
             action: #selector(searchButtonPressed)
         )
         
         navigationItem.leftBarButtonItem = UIBarButtonItem(
-            image: UIImage(named: "back"),
+            image: K.Image.back,
             style: .done,
             target: self,
             action: #selector(didTapBackButton)

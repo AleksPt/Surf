@@ -14,20 +14,20 @@ final class TabView: UITabBarController {
         
         let homeVC = setupViewControllers(
             HomeViewController(),
-            title: "Главная",
-            image: "home-line"
+            title: K.Text.TitleVC.homeVC,
+            image: K.Image.home
         )
         
         let favoriteVC = setupViewControllers(
             FavoriteViewController(),
-            title: "Избранное",
-            image: "heart-line"
+            title: K.Text.TitleVC.favoriteVC,
+            image: K.Image.heartLine
         )
         
         let profileVC = setupViewControllers(
             ProfileViewController(),
-            title: "Профиль",
-            image: "emotion-line"
+            title: K.Text.TitleVC.profileVC,
+            image: K.Image.emotion
         )
         
         self.viewControllers = [homeVC, favoriteVC, profileVC]
@@ -38,11 +38,11 @@ final class TabView: UITabBarController {
     private func setupViewControllers(
         _ vc: UIViewController,
         title: String,
-        image: String
+        image: UIImage
     ) -> UIViewController {
         let vc = UINavigationController(rootViewController: vc)
         vc.tabBarItem.title = title
-        vc.tabBarItem.image = UIImage(named: image)
+        vc.tabBarItem.image = image
         return vc
     }
 }

@@ -33,21 +33,21 @@ final class CellFavorite: UITableViewCell {
     
     private lazy var titleLabel: UILabel = {
         let element = UILabel()
-        element.font = UIFont(name: K.Font.medium, size: K.FontSize.titleLabelDetailVC)
+        element.font = UIFont(name: K.Font.medium, size: K.FontSize.size16)
         return element
     }()
     
     private lazy var dateLabel: UILabel = {
         let element = UILabel()
-        element.font = UIFont(name: K.Font.medium, size: K.FontSize.dateLabelDetailVC)
+        element.font = UIFont(name: K.Font.medium, size: K.FontSize.size10)
         element.textAlignment = .right
-        element.textColor = .dateLabel
+        element.textColor = K.Colors.b3b3b3
         return element
     }()
     
     private lazy var descriptionLabel: UILabel = {
         let element = UILabel()
-        element.font = UIFont(name: K.Font.regular, size: K.FontSize.titleLabelCell)
+        element.font = UIFont(name: K.Font.regular, size: K.FontSize.size12)
         return element
     }()
     

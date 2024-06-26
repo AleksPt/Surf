@@ -96,11 +96,11 @@
 		FA1DA5DC2C2366A100261A08 /* Surf2022 */ = {
 			isa = PBXGroup;
 			children = (
-				FA6ED7412C29F3BC004F1B10 /* Model */,
-				FA1DA5F92C2369F700261A08 /* Helpers */,
 				FA1DA5F22C23684A00261A08 /* Application */,
-				FA1DA5F32C23685D00261A08 /* Controllers */,
+				FA6ED7632C2CC2F9004F1B10 /* Screen */,
+				FA6ED7412C29F3BC004F1B10 /* Model */,
 				FA6ED73C2C29C7BD004F1B10 /* Views */,
+				FA1DA5F92C2369F700261A08 /* Helpers */,
 				FA1DA5F12C23683E00261A08 /* Resources */,
 			);
 			path = Surf2022;
@@ -123,19 +123,6 @@
 				FA1DA5DF2C2366A100261A08 /* SceneDelegate.swift */,
 			);
 			path = Application;
-			sourceTree = "<group>";
-		};
-		FA1DA5F32C23685D00261A08 /* Controllers */ = {
-			isa = PBXGroup;
-			children = (
-				FA6ED7502C2C3C21004F1B10 /* TabView.swift */,
-				FA1DA5E12C2366A100261A08 /* LoginViewController.swift */,
-				FA6ED73F2C29F009004F1B10 /* HomeViewController.swift */,
-				FA6ED7462C2A1403004F1B10 /* DetailViewController.swift */,
-				FA6ED74C2C2B7591004F1B10 /* FavoriteViewController.swift */,
-				FA6ED7522C2C3C4F004F1B10 /* ProfileViewController.swift */,
-			);
-			path = Controllers;
 			sourceTree = "<group>";
 		};
 		FA1DA5F92C2369F700261A08 /* Helpers */ = {
@@ -163,9 +150,6 @@
 			children = (
 				FA1DA5E82C2366A300261A08 /* LaunchScreen.storyboard */,
 				FA6ED73D2C29C7D1004F1B10 /* CustomTextField.swift */,
-				FA6ED7442C29F8F4004F1B10 /* CellCollection.swift */,
-				FA6ED74E2C2C2301004F1B10 /* CellFavorite.swift */,
-				FA6ED7562C2C6445004F1B10 /* CellProfile.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -188,6 +172,54 @@
 				FA6ED7612C2CBFB1004F1B10 /* SFProText-Light.ttf */,
 			);
 			path = Fonts;
+			sourceTree = "<group>";
+		};
+		FA6ED7632C2CC2F9004F1B10 /* Screen */ = {
+			isa = PBXGroup;
+			children = (
+				FA6ED7502C2C3C21004F1B10 /* TabView.swift */,
+				FA6ED7642C2CC308004F1B10 /* Login */,
+				FA6ED7652C2CC326004F1B10 /* Home */,
+				FA6ED7662C2CC368004F1B10 /* Favorite */,
+				FA6ED7672C2CC377004F1B10 /* Profile */,
+			);
+			path = Screen;
+			sourceTree = "<group>";
+		};
+		FA6ED7642C2CC308004F1B10 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				FA1DA5E12C2366A100261A08 /* LoginViewController.swift */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		FA6ED7652C2CC326004F1B10 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				FA6ED73F2C29F009004F1B10 /* HomeViewController.swift */,
+				FA6ED7442C29F8F4004F1B10 /* CellCollection.swift */,
+				FA6ED7462C2A1403004F1B10 /* DetailViewController.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		FA6ED7662C2CC368004F1B10 /* Favorite */ = {
+			isa = PBXGroup;
+			children = (
+				FA6ED74C2C2B7591004F1B10 /* FavoriteViewController.swift */,
+				FA6ED74E2C2C2301004F1B10 /* CellFavorite.swift */,
+			);
+			path = Favorite;
+			sourceTree = "<group>";
+		};
+		FA6ED7672C2CC377004F1B10 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				FA6ED7522C2C3C4F004F1B10 /* ProfileViewController.swift */,
+				FA6ED7562C2C6445004F1B10 /* CellProfile.swift */,
+			);
+			path = Profile;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

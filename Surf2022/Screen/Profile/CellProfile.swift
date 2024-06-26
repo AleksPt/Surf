@@ -13,14 +13,14 @@ final class CellProfile: UITableViewCell {
     // MARK: - UI
     private lazy var titleLabel: UILabel = {
         let element = UILabel()
-        element.font = UIFont(name: K.Font.regular, size: K.FontSize.underlineErrorLabel)
-        element.textColor = .dateLabel
+        element.font = UIFont(name: K.Font.regular, size: K.FontSize.size12)
+        element.textColor = K.Colors.b3b3b3
         return element
     }()
     
     private lazy var valueLabel: UILabel = {
         let element = UILabel()
-        element.font = UIFont(name: K.Font.regular, size: K.FontSize.namesurname)
+        element.font = UIFont(name: K.Font.regular, size: K.FontSize.size18)
         return element
     }()
     
@@ -49,13 +49,13 @@ final class CellProfile: UITableViewCell {
     func configureCell(_ index: IndexPath, _ item: ProfileData) {
         switch index.row {
         case 0:
-            titleLabel.text = "Город"
+            titleLabel.text = K.Text.profileTitleCityCell
             valueLabel.text = item.city
         case 1:
-            titleLabel.text = "Телефон"
+            titleLabel.text = K.Text.profileTitlePhoneCell
             valueLabel.text = item.phone
         case 2:
-            titleLabel.text = "Почта"
+            titleLabel.text = K.Text.profileTitleEmailCell
             valueLabel.text = item.email
         default:
             break

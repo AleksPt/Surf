@@ -28,7 +28,7 @@ final class CellCollection: UICollectionViewCell {
     
     private lazy var titleLabel: UILabel = {
         let element = UILabel()
-        element.font = UIFont(name: K.Font.medium, size: K.FontSize.titleLabelCell)
+        element.font = UIFont(name: K.Font.medium, size: K.FontSize.size16)
         return element
     }()
     
@@ -52,7 +52,7 @@ final class CellCollection: UICollectionViewCell {
     func configureCell(_ model: CollectionData) {
         imageView.image = UIImage(named: model.image)
         titleLabel.text = model.title
-        likeButton.setBackgroundImage(model.isLiked ? UIImage(named: "heart-fill") : UIImage(named: "heart-line"), for: .normal)
+        likeButton.setBackgroundImage(model.isLiked ? K.Image.heartFill : K.Image.heartLine, for: .normal)
     }
 }
 

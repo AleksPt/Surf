@@ -31,11 +31,11 @@ extension UIViewController {
     /// Показывает view  с ошибкой в safeArea.top
     func showErrorView(withTypeError: TypeErrorView) {
         let colouredTopBlack = UIView()
-        colouredTopBlack.backgroundColor = .myRed
+        colouredTopBlack.backgroundColor = K.Colors.f35858
         
         let label = UILabel()
         colouredTopBlack.addSubview(label)
-        label.font = UIFont(name: K.Font.regular, size: K.FontSize.errorLoadFeedLabel)
+        label.font = UIFont(name: K.Font.regular, size: K.FontSize.size14)
         label.textColor = .white
         label.numberOfLines = 0
         label.textAlignment = .center
@@ -43,11 +43,11 @@ extension UIViewController {
         
         switch withTypeError {
         case .incorrectAuth:
-            label.text = K.Text.incorrectAuth
+            label.text = K.Text.Error.incorrectAuth
         case .disconnectInternet:
-            label.text = K.Text.disconnectInternet
+            label.text = K.Text.Error.disconnectInternet
         case .errorLogout:
-            label.text = K.Text.errorLogout
+            label.text = K.Text.Error.errorLogout
         }
         
         if let window = UIApplication.shared.windows.first(where: { $0.isKeyWindow }) {

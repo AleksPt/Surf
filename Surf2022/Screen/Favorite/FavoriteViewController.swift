@@ -33,6 +33,11 @@ final class FavoriteViewController: UIViewController {
         setupNavigationBar()
         setupConstraints()
     }
+    
+    // MARK: - Actions
+    @objc private func searchButtonPressed() {
+        
+    }
 }
 
 // MARK: - UITableViewDataSource
@@ -77,8 +82,14 @@ private extension FavoriteViewController {
     }
     
     func setupNavigationBar() {
-        title = "Избранное"
+        title = K.Text.TitleVC.favoriteVC
         navigationController?.navigationBar.tintColor = .black
+        navigationItem.rightBarButtonItem = UIBarButtonItem(
+            image: K.Image.searchLine,
+            style: .done,
+            target: self,
+            action: #selector(searchButtonPressed)
+        )
     }
     
     func setupConstraints() {
@@ -94,18 +105,18 @@ private extension FavoriteViewController {
 private extension FavoriteViewController {
     func showAlert(forRowAt: Int) {
         let alert = UIAlertController(
-            title: "Внимание",
-            message: "Вы точно хотите удалить из избранного?",
+            title: K.Text.Alert.title,
+            message: K.Text.Alert.messageFavoriteDelete,
             preferredStyle: .alert
         )
         
         let okAction = UIAlertAction(
-            title: "Да, точно",
+            title: K.Text.Alert.okButton,
             style: .default
         )
         
         let cancelAction = UIAlertAction(
-            title: "Нет",
+            title: K.Text.Alert.cancelButton,
             style: .cancel
         )
         

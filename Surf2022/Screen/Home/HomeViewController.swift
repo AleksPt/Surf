@@ -62,17 +62,17 @@ final class HomeViewController: UIViewController {
     
     private lazy var errorLoadFeedLabel: UILabel = {
         let element = UILabel()
-        element.text = "Не удалось загрузить ленту\nОбновите экран или попробуйте позже"
+        element.text = K.Text.Error.failUpdate
         element.numberOfLines = 0
-        element.textColor = K.Colors.errorLoadFeedLabel
-        element.font = UIFont(name: K.Font.regular, size: K.FontSize.errorLoadFeedLabel)
+        element.textColor = K.Colors.b0b0b0
+        element.font = UIFont(name: K.Font.regular, size: K.FontSize.size14)
         element.textAlignment = .center
         return element
     }()
     
     private let updateButton = UIButton(
-        text: "Обновить",
-        size: K.FontSize.buttonTitle,
+        text: K.Text.Button.update,
+        size: K.FontSize.size16,
         weight: .semibold
     )
     
@@ -144,11 +144,11 @@ private extension HomeViewController {
     }
     
     func setupNavigationBar() {
-        title = K.Text.titleHomeVC
+        title = K.Text.TitleVC.homeVC
         navigationItem.hidesBackButton = true
         navigationController?.navigationBar.tintColor = .black
         navigationItem.rightBarButtonItem = UIBarButtonItem(
-            image: UIImage(systemName: "magnifyingglass"),
+            image: K.Image.searchLine,
             style: .done,
             target: self,
             action: #selector(searchButtonPressed)

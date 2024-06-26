@@ -8,11 +8,25 @@
 import UIKit
 
 enum K {
+    enum Image {
+        static let eyeClosed: UIImage = .eyeClosed
+        static let eyeOpen: UIImage = .eyeOpen
+        static let back: UIImage = .back
+        static let emotion: UIImage = .emotionLine
+        static let heartFill: UIImage = .heartFill
+        static let heartLine: UIImage = .heartLine
+        static let home: UIImage = .homeLine
+        static let search: UIImage = .searchEyeLine
+        static let smileUnhappy: UIImage = .smileUnhappy
+        static let searchLine: UIImage = .searchLine
+        static let surfLogo: UIImage = .surfLogo
+    }
+    
     enum Colors {
-        static let red: UIColor = .myRed
-        static let gray: UIColor = .myGray
-        static let dateLabel: UIColor = .dateLabel
-        static let errorLoadFeedLabel: UIColor = .errorLoadFeedLabel
+        static let f35858: UIColor = .F_35858
+        static let dfdfdf: UIColor = .DFDFDF
+        static let b3b3b3: UIColor = .B_3_B_3_B_3
+        static let b0b0b0: UIColor = .B_0_B_0_B_0
     }
     
     enum Font {
@@ -23,26 +37,50 @@ enum K {
     }
     
     enum FontSize {
-        static let underlineErrorLabel: CGFloat = 12
-        static let buttonTitle: CGFloat = 16
-        static let titleLabelCell: CGFloat = 12
-        static let titleLabelDetailVC: CGFloat = 16
-        static let dateLabelDetailVC: CGFloat = 10
-        static let descriptionLabelDetailVC: CGFloat = 12
-        static let errorLoadFeedLabel: CGFloat = 14
-        static let namesurname: CGFloat = 18
+        static let size10: CGFloat = 10
+        static let size12: CGFloat = 12
+        static let size14: CGFloat = 14
+        static let size16: CGFloat = 16
+        static let size18: CGFloat = 18
     }
     
     enum Text {
-        static let titleLoginVC = "Вход"
-        static let titleHomeVC = "Главная"
-        static let authButton = "Вход"
         static let loginTextFieldPlaceholder = "Логин"
         static let passwordTextFieldPlaceholder = "Пароль"
-        static let underlineLabel = "Поле не может быть пустым"
-        static let incorrectAuth = "Логин или пароль введен неправильно"
-        static let disconnectInternet = "Отсутствует интернет-соединение\nПопробуйте позже"
-        static let errorLogout = "Не удалось выйти, попробуйте еще раз"
+        static let enterYourRequest = "Введите ваш запрос"
+        static let profileTitleCityCell = "Город"
+        static let profileTitlePhoneCell = "Телефон"
+        static let profileTitleEmailCell = "Почта"
+        
+        enum Error {
+            static let fieldIsEmpty = "Поле не может быть пустым"
+            static let incorrectAuth = "Логин или пароль введен неправильно"
+            static let disconnectInternet = "Отсутствует интернет-соединение\nПопробуйте позже"
+            static let errorLogout = "Не удалось выйти, попробуйте еще раз"
+            static let failUpdate = "Не удалось загрузить ленту\nОбновите экран или попробуйте позже"
+            static let failRequest = "По этому запросу нет результатов, попробуйте другой запрос"
+        }
+        
+        enum TitleVC {
+            static let loginVC = "Вход"
+            static let homeVC = "Главная"
+            static let favoriteVC = "Избранное"
+            static let profileVC = "Профиль"
+        }
+        
+        enum Alert {
+            static let title = "Внимание"
+            static let messageFavoriteDelete = "Вы точно хотите удалить из избранного?"
+            static let messageLogout = ""
+            static let okButton = "Да, точно"
+            static let cancelButton = "Нет"
+        }
+        
+        enum Button {
+            static let login = "Войти"
+            static let update = "Обновить"
+            static let logout = "Выйти"
+        }
     }
     
     enum Constraints {

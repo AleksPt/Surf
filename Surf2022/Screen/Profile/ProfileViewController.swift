@@ -21,21 +21,21 @@ final class ProfileViewController: UIViewController {
     
     private lazy var nameLabel: UILabel = {
         let element = UILabel()
-        element.font = UIFont(name: K.Font.medium, size: K.FontSize.namesurname)
+        element.font = UIFont(name: K.Font.medium, size: K.FontSize.size18)
         return element
     }()
     
     private lazy var surnameLabel: UILabel = {
         let element = UILabel()
-        element.font = UIFont(name: K.Font.medium, size: K.FontSize.namesurname)
+        element.font = UIFont(name: K.Font.medium, size: K.FontSize.size18)
         return element
     }()
     
     private lazy var statusLabel: UILabel = {
         let element = UILabel()
         element.numberOfLines = 0
-        element.textColor = .dateLabel
-        element.font = UIFont(name: K.Font.light, size: K.FontSize.underlineErrorLabel)
+        element.textColor = K.Colors.b3b3b3
+        element.font = UIFont(name: K.Font.light, size: K.FontSize.size12)
         return element
     }()
     
@@ -70,7 +70,11 @@ final class ProfileViewController: UIViewController {
         return element
     }()
     
-    private let logoutButton = UIButton(text: "Выйти", size: 16, weight: .semibold)
+    private let logoutButton = UIButton(
+        text: K.Text.Button.logout,
+        size: K.FontSize.size16,
+        weight: .semibold
+    )
     
     private lazy var tableView: UITableView = {
         let element = UITableView()
@@ -148,7 +152,7 @@ private extension ProfileViewController {
     }
     
     func setupNavigationBar() {
-        title = "Профиль"
+        title = K.Text.TitleVC.profileVC
         navigationController?.navigationBar.tintColor = .black
     }
     
@@ -180,13 +184,13 @@ private extension ProfileViewController {
 private extension ProfileViewController {
     func showAlert() {
         let alert = UIAlertController(
-            title: "Внимание",
-            message: "Вы точно хотите выйти из приложения?",
+            title: K.Text.Alert.title,
+            message: K.Text.Alert.messageLogout,
             preferredStyle: .alert
         )
         
         let okAction = UIAlertAction(
-            title: "Да, точно",
+            title: K.Text.Alert.okButton,
             style: .default) { _ in
                 NotificationCenter.default.post(
                     name: Notification.Name(K.NotificationKey.login),
@@ -196,7 +200,7 @@ private extension ProfileViewController {
             }
         
         let cancelAction = UIAlertAction(
-            title: "Нет",
+            title: K.Text.Alert.cancelButton,
             style: .cancel
         )
         

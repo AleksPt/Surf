@@ -17,16 +17,16 @@ final class LoginViewController: UIViewController {
     
     private lazy var underlineLogin: UIView = {
         let element = UIView()
-        element.backgroundColor = .myGray
+        element.backgroundColor = K.Colors.dfdfdf
         return element
     }()
     
     private lazy var loginUnderlineErrorLabel: UILabel = {
         let element = UILabel()
         element.isHidden = true
-        element.text = K.Text.underlineLabel
+        element.text = K.Text.Error.fieldIsEmpty
         element.textColor = .systemRed
-        element.font = UIFont(name: K.Font.regular, size: K.FontSize.underlineErrorLabel)
+        element.font = UIFont(name: K.Font.regular, size: K.FontSize.size12)
         return element
     }()
     
@@ -34,35 +34,35 @@ final class LoginViewController: UIViewController {
     
     private lazy var underlinePassword: UIView = {
         let element = UIView()
-        element.backgroundColor = .myGray
+        element.backgroundColor = K.Colors.dfdfdf
         return element
     }()
     
     private lazy var passwordUnderlineErrorLabel: UILabel = {
         let element = UILabel()
         element.isHidden = true
-        element.text = K.Text.underlineLabel
+        element.text = K.Text.Error.fieldIsEmpty
         element.textColor = .systemRed
-        element.font = UIFont(name: K.Font.regular, size: K.FontSize.underlineErrorLabel)
+        element.font = UIFont(name: K.Font.regular, size: K.FontSize.size12)
         return element
     }()
     
     private let authButton = UIButton(
-        text: K.Text.authButton,
-        size: K.FontSize.buttonTitle,
+        text: K.Text.Button.login,
+        size: K.FontSize.size16,
         weight: .semibold
     )
     
     private lazy var logoSurf: UIImageView = {
         let element = UIImageView()
-        element.image = .surfLogo
+        element.image = K.Image.surfLogo
         element.contentMode = .scaleAspectFit
         return element
     }()
     
     private lazy var eyeButton: UIButton = {
         let element = UIButton(type: .system)
-        element.setBackgroundImage(.eyeClosed, for: .normal)
+        element.setBackgroundImage(K.Image.eyeClosed, for: .normal)
         return element
     }()
     
@@ -120,35 +120,23 @@ final class LoginViewController: UIViewController {
     private func updateUiTextFields(login: Bool, password: Bool) {
         guard login else {
             loginUnderlineErrorLabel.isHidden = false
-            underlineLogin.backgroundColor = K.Colors.red
+            underlineLogin.backgroundColor = K.Colors.f35858
             loginTextField.becomeFirstResponder()
             return
         }
         
         loginUnderlineErrorLabel.isHidden = true
-        underlineLogin.backgroundColor = K.Colors.gray
+        underlineLogin.backgroundColor = K.Colors.dfdfdf
         
         guard password else {
             passwordUnderlineErrorLabel.isHidden = false
-            underlinePassword.backgroundColor = K.Colors.red
+            underlinePassword.backgroundColor = K.Colors.f35858
             passwordTextField.becomeFirstResponder()
             return
         }
         
         passwordUnderlineErrorLabel.isHidden = true
-        underlinePassword.backgroundColor = K.Colors.gray
-    }
-    
-    private func updateUiAuthButton(isFinished: Bool, sender: UIButton) {
-        if isFinished {
-            activityIndicator.stopAnimating()
-            sender.setTitleColor(.white, for: .normal)
-            sender.isEnabled = true
-        } else {
-            activityIndicator.startAnimating()
-            sender.setTitleColor(.clear, for: .normal)
-            sender.isEnabled = false
-        }
+        underlinePassword.backgroundColor = K.Colors.dfdfdf
     }
     
     private func verifyInput() -> Bool {
@@ -177,7 +165,7 @@ final class LoginViewController: UIViewController {
         passwordTextField.becomeFirstResponder()
         passwordTextField.isSecureTextEntry.toggle()
         eyeButton.setBackgroundImage(
-            passwordTextField.isSecureTextEntry ? .eyeClosed : .eyeOpen,
+            passwordTextField.isSecureTextEntry ? K.Image.eyeClosed : K.Image.eyeOpen,
             for: .normal
         )
     }
@@ -225,7 +213,7 @@ private extension LoginViewController {
         eyeButton.addTarget(self, action: #selector(showPassword), for: .touchUpInside)
         authButton.addTarget(self, action: #selector(authButtonPressed), for: .touchUpInside)
         
-        title = K.Text.titleLoginVC
+        title = K.Text.TitleVC.loginVC
         
     }
 }
