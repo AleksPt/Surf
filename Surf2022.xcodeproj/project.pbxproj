@@ -27,6 +27,8 @@
 		FA6ED74F2C2C2301004F1B10 /* CellFavorite.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6ED74E2C2C2301004F1B10 /* CellFavorite.swift */; };
 		FA6ED7512C2C3C21004F1B10 /* TabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6ED7502C2C3C21004F1B10 /* TabView.swift */; };
 		FA6ED7532C2C3C4F004F1B10 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6ED7522C2C3C4F004F1B10 /* ProfileViewController.swift */; };
+		FA6ED7552C2C5FE6004F1B10 /* ProfileData.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6ED7542C2C5FE6004F1B10 /* ProfileData.swift */; };
+		FA6ED7572C2C6445004F1B10 /* CellProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6ED7562C2C6445004F1B10 /* CellProfile.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -51,6 +53,8 @@
 		FA6ED74E2C2C2301004F1B10 /* CellFavorite.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellFavorite.swift; sourceTree = "<group>"; };
 		FA6ED7502C2C3C21004F1B10 /* TabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabView.swift; sourceTree = "<group>"; };
 		FA6ED7522C2C3C4F004F1B10 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		FA6ED7542C2C5FE6004F1B10 /* ProfileData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileData.swift; sourceTree = "<group>"; };
+		FA6ED7562C2C6445004F1B10 /* CellProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellProfile.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,8 +119,8 @@
 		FA1DA5F32C23685D00261A08 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				FA1DA5E12C2366A100261A08 /* LoginViewController.swift */,
 				FA6ED7502C2C3C21004F1B10 /* TabView.swift */,
+				FA1DA5E12C2366A100261A08 /* LoginViewController.swift */,
 				FA6ED73F2C29F009004F1B10 /* HomeViewController.swift */,
 				FA6ED7462C2A1403004F1B10 /* DetailViewController.swift */,
 				FA6ED74C2C2B7591004F1B10 /* FavoriteViewController.swift */,
@@ -152,6 +156,7 @@
 				FA6ED73D2C29C7D1004F1B10 /* CustomTextField.swift */,
 				FA6ED7442C29F8F4004F1B10 /* CellCollection.swift */,
 				FA6ED74E2C2C2301004F1B10 /* CellFavorite.swift */,
+				FA6ED7562C2C6445004F1B10 /* CellProfile.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -160,6 +165,7 @@
 			isa = PBXGroup;
 			children = (
 				FA6ED7422C29F3E2004F1B10 /* CollectionData.swift */,
+				FA6ED7542C2C5FE6004F1B10 /* ProfileData.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -250,7 +256,9 @@
 				FA6ED7532C2C3C4F004F1B10 /* ProfileViewController.swift in Sources */,
 				FA6ED73E2C29C7D1004F1B10 /* CustomTextField.swift in Sources */,
 				FA6ED74F2C2C2301004F1B10 /* CellFavorite.swift in Sources */,
+				FA6ED7572C2C6445004F1B10 /* CellProfile.swift in Sources */,
 				FA6ED7402C29F009004F1B10 /* HomeViewController.swift in Sources */,
+				FA6ED7552C2C5FE6004F1B10 /* ProfileData.swift in Sources */,
 				FA1DA5E02C2366A100261A08 /* SceneDelegate.swift in Sources */,
 				FA1DA5FB2C236A0500261A08 /* Constants.swift in Sources */,
 				FA6ED74D2C2B7591004F1B10 /* FavoriteViewController.swift in Sources */,

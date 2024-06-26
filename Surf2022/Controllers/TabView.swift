@@ -17,25 +17,22 @@ final class TabView: UITabBarController {
             title: "Главная",
             image: "home-line"
         )
-//        mainVC.tabBarItem.selectedImage = UIImage(systemName: Image.mainPageImageFill)
         
         let favoriteVC = setupViewControllers(
             FavoriteViewController(),
             title: "Избранное",
             image: "heart-line"
         )
-//        catalogVC.tabBarItem.selectedImage = UIImage(systemName: Image.catalogImageFill)
         
         let profileVC = setupViewControllers(
             ProfileViewController(),
             title: "Профиль",
             image: "emotion-line"
         )
-//        cartVC.tabBarItem.selectedImage = UIImage(systemName: Image.cartImageFill)
         
         self.viewControllers = [homeVC, favoriteVC, profileVC]
-        tabBar.backgroundColor = .white
         tabBar.tintColor = .black
+        self.selectedIndex = 2
     }
 
     private func setupViewControllers(
@@ -47,9 +44,5 @@ final class TabView: UITabBarController {
         vc.tabBarItem.title = title
         vc.tabBarItem.image = UIImage(named: image)
         return vc
-    }
-    
-    @objc private func goToMain() {
-        self.selectedIndex = 0
     }
 }
