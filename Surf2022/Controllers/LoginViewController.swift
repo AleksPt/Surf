@@ -78,7 +78,6 @@ final class LoginViewController: UIViewController {
         setupViews()
         setupConstraints()
         setDelegates()
-        showErrorView(withTypeError: .disconnectInternet)
     }
     
     // MARK: - Private methods
@@ -188,8 +187,12 @@ final class LoginViewController: UIViewController {
             return
         }
         
-        let homeVC = HomeViewController()
-        navigationController?.pushViewController(homeVC, animated: true)
+        let tabView = TabView()
+        NotificationCenter.default.post(
+            name: Notification.Name(K.NotificationKey.login),
+            object: nil,
+            userInfo: [K.NotificationKey.login: true]
+        )
         
     }
 }
@@ -223,6 +226,7 @@ private extension LoginViewController {
         authButton.addTarget(self, action: #selector(authButtonPressed), for: .touchUpInside)
         
         title = K.Text.titleLoginVC
+        
     }
 }
 

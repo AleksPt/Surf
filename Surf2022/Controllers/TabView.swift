@@ -32,7 +32,7 @@ final class TabView: UITabBarController {
         
         self.viewControllers = [homeVC, favoriteVC, profileVC]
         tabBar.tintColor = .black
-        self.selectedIndex = 2
+        navigationItem.hidesBackButton = true
     }
 
     private func setupViewControllers(

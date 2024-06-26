@@ -92,6 +92,15 @@ final class ProfileViewController: UIViewController {
         setupNavigationBar()
         setupConstraints()
     }
+    
+    // MARK: - Actions
+    @objc private func didTapLogout() {
+        NotificationCenter.default.post(
+            name: Notification.Name(K.NotificationKey.login),
+            object: nil,
+            userInfo: [K.NotificationKey.login: false]
+        )
+    }
 }
 
 // MARK: - UITableViewDataSource
@@ -127,6 +136,12 @@ private extension ProfileViewController {
         nameLabel.text = profileData.name
         surnameLabel.text = profileData.surname
         statusLabel.text = "«" + profileData.status + "»"
+        
+        logoutButton.addTarget(
+            self,
+            action: #selector(didTapLogout),
+            for: .touchUpInside
+        )
     }
     
     func addSubviews() {
@@ -159,7 +174,7 @@ private extension ProfileViewController {
         tableView.snp.makeConstraints {
             $0.top.equalTo(horizontalStack.snp.bottom).offset(10)
             $0.leading.trailing.equalToSuperview()
-            $0.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottom)
+            $0.bottom.equalTo(logoutButton.snp.top)
         }
     }
 }
