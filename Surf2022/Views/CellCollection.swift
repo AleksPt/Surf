@@ -8,7 +8,7 @@
 import UIKit
 import SnapKit
 
-final class Cell: UICollectionViewCell {
+final class CellCollection: UICollectionViewCell {
     
     // MARK: - UI
     private lazy var imageView: UIImageView = {
@@ -57,7 +57,7 @@ final class Cell: UICollectionViewCell {
 }
 
 // MARK: - Set Views
-private extension Cell {
+private extension CellCollection {
     func setViews() {
         contentView.addSubview(imageView)
         imageView.addSubview(likeButton)
@@ -66,7 +66,7 @@ private extension Cell {
 }
 
 // MARK: - Setup Constraints
-private extension Cell {
+private extension CellCollection {
     func setupConstraints() {
         
         imageView.snp.makeConstraints {

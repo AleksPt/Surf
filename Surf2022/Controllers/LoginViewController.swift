@@ -78,6 +78,7 @@ final class LoginViewController: UIViewController {
         setupViews()
         setupConstraints()
         setDelegates()
+        showErrorView(withTypeError: .disconnectInternet)
     }
     
     // MARK: - Private methods

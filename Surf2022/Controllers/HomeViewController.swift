@@ -30,7 +30,7 @@ final class HomeViewController: UIViewController {
         layout.minimumLineSpacing = 16
         layout.minimumInteritemSpacing = 7
         let element = UICollectionView(frame: .zero, collectionViewLayout: layout)
-        element.register(Cell.self, forCellWithReuseIdentifier: Cell.description())
+        element.register(CellCollection.self, forCellWithReuseIdentifier: CellCollection.description())
         element.delaysContentTouches = false
         element.refreshControl = refresh
         element.showsVerticalScrollIndicator = false
@@ -92,6 +92,11 @@ final class HomeViewController: UIViewController {
         collectionView.dataSource = self
         collectionView.delegate = self
     }
+    
+    // MARK: - Actions
+    @objc private func searchButtonPressed() {
+        
+    }
 }
 
 // MARK: - UICollectionDataSource
@@ -101,7 +106,7 @@ extension HomeViewController: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Cell.description(), for: indexPath) as? Cell else { return UICollectionViewCell() }
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CellCollection.description(), for: indexPath) as? CellCollection else { return UICollectionViewCell() }
         
         let dataItem = collectionDataSource[indexPath.item]
         cell.configureCell(dataItem)
@@ -146,7 +151,7 @@ private extension HomeViewController {
             image: UIImage(systemName: "magnifyingglass"),
             style: .done,
             target: self,
-            action: nil
+            action: #selector(searchButtonPressed)
         )
     }
 }

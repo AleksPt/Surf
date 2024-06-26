@@ -20,9 +20,11 @@
 		FA6ED73E2C29C7D1004F1B10 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6ED73D2C29C7D1004F1B10 /* CustomTextField.swift */; };
 		FA6ED7402C29F009004F1B10 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6ED73F2C29F009004F1B10 /* HomeViewController.swift */; };
 		FA6ED7432C29F3E2004F1B10 /* CollectionData.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6ED7422C29F3E2004F1B10 /* CollectionData.swift */; };
-		FA6ED7452C29F8F4004F1B10 /* Cell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6ED7442C29F8F4004F1B10 /* Cell.swift */; };
+		FA6ED7452C29F8F4004F1B10 /* CellCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6ED7442C29F8F4004F1B10 /* CellCollection.swift */; };
 		FA6ED7472C2A1403004F1B10 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6ED7462C2A1403004F1B10 /* DetailViewController.swift */; };
 		FA6ED7492C2A1AF3004F1B10 /* Date + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6ED7482C2A1AF3004F1B10 /* Date + Extension.swift */; };
+		FA6ED74D2C2B7591004F1B10 /* FavoriteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6ED74C2C2B7591004F1B10 /* FavoriteViewController.swift */; };
+		FA6ED74F2C2C2301004F1B10 /* CellFavorite.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6ED74E2C2C2301004F1B10 /* CellFavorite.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,9 +42,11 @@
 		FA6ED73D2C29C7D1004F1B10 /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
 		FA6ED73F2C29F009004F1B10 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		FA6ED7422C29F3E2004F1B10 /* CollectionData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionData.swift; sourceTree = "<group>"; };
-		FA6ED7442C29F8F4004F1B10 /* Cell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cell.swift; sourceTree = "<group>"; };
+		FA6ED7442C29F8F4004F1B10 /* CellCollection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellCollection.swift; sourceTree = "<group>"; };
 		FA6ED7462C2A1403004F1B10 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		FA6ED7482C2A1AF3004F1B10 /* Date + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date + Extension.swift"; sourceTree = "<group>"; };
+		FA6ED74C2C2B7591004F1B10 /* FavoriteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteViewController.swift; sourceTree = "<group>"; };
+		FA6ED74E2C2C2301004F1B10 /* CellFavorite.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellFavorite.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,6 +114,7 @@
 				FA1DA5E12C2366A100261A08 /* LoginViewController.swift */,
 				FA6ED73F2C29F009004F1B10 /* HomeViewController.swift */,
 				FA6ED7462C2A1403004F1B10 /* DetailViewController.swift */,
+				FA6ED74C2C2B7591004F1B10 /* FavoriteViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -139,7 +144,8 @@
 			children = (
 				FA1DA5E82C2366A300261A08 /* LaunchScreen.storyboard */,
 				FA6ED73D2C29C7D1004F1B10 /* CustomTextField.swift */,
-				FA6ED7442C29F8F4004F1B10 /* Cell.swift */,
+				FA6ED7442C29F8F4004F1B10 /* CellCollection.swift */,
+				FA6ED74E2C2C2301004F1B10 /* CellFavorite.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -235,10 +241,12 @@
 				FA6ED7472C2A1403004F1B10 /* DetailViewController.swift in Sources */,
 				FA1DA6022C23756900261A08 /* UIViewController + Extension.swift in Sources */,
 				FA6ED73E2C29C7D1004F1B10 /* CustomTextField.swift in Sources */,
+				FA6ED74F2C2C2301004F1B10 /* CellFavorite.swift in Sources */,
 				FA6ED7402C29F009004F1B10 /* HomeViewController.swift in Sources */,
 				FA1DA5E02C2366A100261A08 /* SceneDelegate.swift in Sources */,
 				FA1DA5FB2C236A0500261A08 /* Constants.swift in Sources */,
-				FA6ED7452C29F8F4004F1B10 /* Cell.swift in Sources */,
+				FA6ED74D2C2B7591004F1B10 /* FavoriteViewController.swift in Sources */,
+				FA6ED7452C29F8F4004F1B10 /* CellCollection.swift in Sources */,
 				FA1DA6002C236CA400261A08 /* UITextField + Extension.swift in Sources */,
 				FA6ED7432C29F3E2004F1B10 /* CollectionData.swift in Sources */,
 			);

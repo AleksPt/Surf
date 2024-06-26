@@ -75,6 +75,10 @@ final class DetailViewController: UIViewController {
     @objc private func didTapBackButton() {
         navigationController?.popViewController(animated: true)
     }
+    
+    @objc private func searchButtonPressed() {
+        
+    }
 }
 
 // MARK: - Setup Views
@@ -97,7 +101,7 @@ private extension DetailViewController {
             image: UIImage(systemName: "magnifyingglass"),
             style: .done,
             target: self,
-            action: nil
+            action: #selector(searchButtonPressed)
         )
         
         navigationItem.leftBarButtonItem = UIBarButtonItem(
