@@ -35,7 +35,7 @@ extension UIViewController {
         
         let label = UILabel()
         colouredTopBlack.addSubview(label)
-        label.font = .systemFont(ofSize: 14)
+        label.font = UIFont(name: K.Font.regular, size: K.FontSize.errorLoadFeedLabel)
         label.textColor = .white
         label.numberOfLines = 0
         label.textAlignment = .center

@@ -25,11 +25,14 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         guard let windowScene = (scene as? UIWindowScene) else { return }
         window = UIWindow(windowScene: windowScene)
-        window?.rootViewController = loginVC
+        window?.rootViewController = UINavigationController(rootViewController: LoginViewController())
         window?.makeKeyAndVisible()
     }
     
     @objc private func vcRout(notification: Notification) {
+        let loginVC = UINavigationController(rootViewController: LoginViewController())
+        let tabView = TabView()
+        
         guard let vc = notification.userInfo?[K.NotificationKey.login] as? Bool else { return }
         self.window?.rootViewController = vc ? tabView : loginVC
     }

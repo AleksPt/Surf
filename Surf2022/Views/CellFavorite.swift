@@ -8,6 +8,10 @@
 import UIKit
 import SnapKit
 
+protocol CellFavoriteDelegate: AnyObject {
+    func warningDeleteFavorite(_ cell: CellFavorite)
+}
+
 final class CellFavorite: UITableViewCell {
     
     // MARK: - UI
@@ -23,18 +27,19 @@ final class CellFavorite: UITableViewCell {
     private lazy var likeButton: UIButton = {
         let element = UIButton(type: .system)
         element.setBackgroundImage(UIImage(named: "heart-fill"), for: .normal)
+        element.addTarget(self, action: #selector(dislike), for: .touchUpInside)
         return element
     }()
     
     private lazy var titleLabel: UILabel = {
         let element = UILabel()
-        element.font = .systemFont(ofSize: 16, weight: .medium)
+        element.font = UIFont(name: K.Font.medium, size: K.FontSize.titleLabelDetailVC)
         return element
     }()
     
     private lazy var dateLabel: UILabel = {
         let element = UILabel()
-        element.font = .systemFont(ofSize: 10, weight: .medium)
+        element.font = UIFont(name: K.Font.medium, size: K.FontSize.dateLabelDetailVC)
         element.textAlignment = .right
         element.textColor = .dateLabel
         return element
@@ -42,9 +47,12 @@ final class CellFavorite: UITableViewCell {
     
     private lazy var descriptionLabel: UILabel = {
         let element = UILabel()
-        element.font = .systemFont(ofSize: 12)
+        element.font = UIFont(name: K.Font.regular, size: K.FontSize.titleLabelCell)
         return element
     }()
+    
+    // MARK: - Public properties
+    weak var delegate: CellFavoriteDelegate?
     
     // MARK: - Init
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
@@ -71,6 +79,11 @@ final class CellFavorite: UITableViewCell {
         titleLabel.text = model.title
         dateLabel.text = model.date.dateFormatter()
         descriptionLabel.text = model.description
+    }
+    
+    // MARK: - Actions
+    @objc private func dislike() {
+        delegate?.warningDeleteFavorite(self)
     }
 }
 

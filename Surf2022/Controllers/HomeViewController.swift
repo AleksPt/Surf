@@ -65,7 +65,7 @@ final class HomeViewController: UIViewController {
         element.text = "Не удалось загрузить ленту\nОбновите экран или попробуйте позже"
         element.numberOfLines = 0
         element.textColor = K.Colors.errorLoadFeedLabel
-        element.font = .systemFont(ofSize: K.FontSize.errorLoadFeedLabel, weight: .regular)
+        element.font = UIFont(name: K.Font.regular, size: K.FontSize.errorLoadFeedLabel)
         element.textAlignment = .center
         return element
     }()

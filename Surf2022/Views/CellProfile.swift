@@ -13,14 +13,14 @@ final class CellProfile: UITableViewCell {
     // MARK: - UI
     private lazy var titleLabel: UILabel = {
         let element = UILabel()
-        element.font = .systemFont(ofSize: 12)
+        element.font = UIFont(name: K.Font.regular, size: K.FontSize.underlineErrorLabel)
         element.textColor = .dateLabel
         return element
     }()
     
     private lazy var valueLabel: UILabel = {
         let element = UILabel()
-        element.font = .systemFont(ofSize: 18)
+        element.font = UIFont(name: K.Font.regular, size: K.FontSize.namesurname)
         return element
     }()
     

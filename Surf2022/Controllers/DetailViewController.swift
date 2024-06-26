@@ -21,7 +21,7 @@ final class DetailViewController: UIViewController {
     
     private lazy var titleLabel: UILabel = {
         let element = UILabel()
-        element.font = .systemFont(ofSize: K.FontSize.titleLabelDetailVC, weight: .medium)
+        element.font = UIFont(name: K.Font.medium, size: K.FontSize.titleLabelDetailVC)
         element.numberOfLines = 0
         return element
     }()
@@ -29,20 +29,21 @@ final class DetailViewController: UIViewController {
     private lazy var descriptionTextView: UITextView = {
         let element = UITextView()
         element.textContainerInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 5)
-        element.font = .systemFont(ofSize: K.FontSize.descriptionLabelDetailVC, weight: .regular)
-        let attributedString = NSMutableAttributedString(string: descriptionText)
         let paragraphStyle = NSMutableParagraphStyle()
-        paragraphStyle.lineSpacing = 20
-        attributedString.addAttribute(.paragraphStyle, value: paragraphStyle, range: NSRange(location: 0, length: attributedString.length))
+        paragraphStyle.lineSpacing = 10
+        let attributes: [NSAttributedString.Key: Any] = [
+            .paragraphStyle: paragraphStyle,
+            .font: UIFont(name: K.Font.regular, size: K.FontSize.descriptionLabelDetailVC)
+        ]
+        let attributedString = NSAttributedString(string: descriptionText, attributes: attributes)
         element.attributedText = attributedString
-        
         return element
     }()
     
     private lazy var dateLabel: UILabel = {
         let element = UILabel()
         element.textColor = K.Colors.dateLabel
-        element.font = .systemFont(ofSize: K.FontSize.dateLabelDetailVC, weight: .medium)
+        element.font = UIFont(name: K.Font.medium, size: K.FontSize.dateLabelDetailVC)
         return element
     }()
     
@@ -136,7 +137,7 @@ private extension DetailViewController {
         descriptionTextView.snp.makeConstraints {
             $0.leading.equalTo(imageView.snp.leading).offset(-4)
             $0.trailing.equalTo(imageView.snp.trailing)
-            $0.top.equalTo(titleLabel.snp.bottom).offset(8)
+            $0.top.equalTo(titleLabel.snp.bottom).offset(16)
             $0.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottom)
         }
     }

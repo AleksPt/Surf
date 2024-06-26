@@ -26,7 +26,7 @@ final class LoginViewController: UIViewController {
         element.isHidden = true
         element.text = K.Text.underlineLabel
         element.textColor = .systemRed
-        element.font = .systemFont(ofSize: K.FontSize.underlineErrorLabel)
+        element.font = UIFont(name: K.Font.regular, size: K.FontSize.underlineErrorLabel)
         return element
     }()
     
@@ -43,7 +43,7 @@ final class LoginViewController: UIViewController {
         element.isHidden = true
         element.text = K.Text.underlineLabel
         element.textColor = .systemRed
-        element.font = .systemFont(ofSize: K.FontSize.underlineErrorLabel)
+        element.font = UIFont(name: K.Font.regular, size: K.FontSize.underlineErrorLabel)
         return element
     }()
     
@@ -187,13 +187,13 @@ final class LoginViewController: UIViewController {
             return
         }
         
-        let tabView = TabView()
         NotificationCenter.default.post(
             name: Notification.Name(K.NotificationKey.login),
             object: nil,
             userInfo: [K.NotificationKey.login: true]
         )
         
+        navigationController?.viewControllers.removeAll { $0 is LoginViewController }
     }
 }
 

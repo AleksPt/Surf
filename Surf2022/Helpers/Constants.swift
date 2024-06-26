@@ -15,6 +15,13 @@ enum K {
         static let errorLoadFeedLabel: UIColor = .errorLoadFeedLabel
     }
     
+    enum Font {
+        static let regular = "SFProText-Regular"
+        static let medium = "SFProText-Medium"
+        static let semibold = "SFProText-Semibold"
+        static let light = "SFProText-Light"
+    }
+    
     enum FontSize {
         static let underlineErrorLabel: CGFloat = 12
         static let buttonTitle: CGFloat = 16
@@ -23,6 +30,7 @@ enum K {
         static let dateLabelDetailVC: CGFloat = 10
         static let descriptionLabelDetailVC: CGFloat = 12
         static let errorLoadFeedLabel: CGFloat = 14
+        static let namesurname: CGFloat = 18
     }
     
     enum Text {
@@ -63,7 +71,7 @@ enum K {
         }
         
         static let mockTitle = "Lorem ipsum dolor sit amet"
-        static let mockDescription = "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet."
+        static let mockDescription = "Для бариста и посетителей кофеен специальные кружки для кофе — это ещё один способ проконтролировать вкус напитка и приготовить его именно так, как нравится вам. Теперь, кроме регулировки экстракции, настройки помола, времени заваривания и многого что помогает выделять нужные характеристики кофе, вы сможете выбрать и кружку для кофе в зависимости от сорта."
     }
     
     enum NotificationKey {

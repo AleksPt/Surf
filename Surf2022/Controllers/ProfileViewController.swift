@@ -21,20 +21,21 @@ final class ProfileViewController: UIViewController {
     
     private lazy var nameLabel: UILabel = {
         let element = UILabel()
-        element.font = .systemFont(ofSize: 18, weight: .medium)
+        element.font = UIFont(name: K.Font.medium, size: K.FontSize.namesurname)
         return element
     }()
     
     private lazy var surnameLabel: UILabel = {
         let element = UILabel()
-        element.font = .systemFont(ofSize: 18, weight: .medium)
+        element.font = UIFont(name: K.Font.medium, size: K.FontSize.namesurname)
         return element
     }()
     
     private lazy var statusLabel: UILabel = {
         let element = UILabel()
         element.numberOfLines = 0
-        element.font = .systemFont(ofSize: 12, weight: .light)
+        element.textColor = .dateLabel
+        element.font = UIFont(name: K.Font.light, size: K.FontSize.underlineErrorLabel)
         return element
     }()
     
@@ -95,11 +96,7 @@ final class ProfileViewController: UIViewController {
     
     // MARK: - Actions
     @objc private func didTapLogout() {
-        NotificationCenter.default.post(
-            name: Notification.Name(K.NotificationKey.login),
-            object: nil,
-            userInfo: [K.NotificationKey.login: false]
-        )
+        showAlert()
     }
 }
 
@@ -176,5 +173,35 @@ private extension ProfileViewController {
             $0.leading.trailing.equalToSuperview()
             $0.bottom.equalTo(logoutButton.snp.top)
         }
+    }
+}
+
+// MARK: - Alert
+private extension ProfileViewController {
+    func showAlert() {
+        let alert = UIAlertController(
+            title: "Внимание",
+            message: "Вы точно хотите выйти из приложения?",
+            preferredStyle: .alert
+        )
+        
+        let okAction = UIAlertAction(
+            title: "Да, точно",
+            style: .default) { _ in
+                NotificationCenter.default.post(
+                    name: Notification.Name(K.NotificationKey.login),
+                    object: nil,
+                    userInfo: [K.NotificationKey.login: false]
+                )
+            }
+        
+        let cancelAction = UIAlertAction(
+            title: "Нет",
+            style: .cancel
+        )
+        
+        alert.addAction(cancelAction)
+        alert.addAction(okAction)
+        present(alert, animated: true)
     }
 }

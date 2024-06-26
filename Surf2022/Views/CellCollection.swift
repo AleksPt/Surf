@@ -28,7 +28,7 @@ final class CellCollection: UICollectionViewCell {
     
     private lazy var titleLabel: UILabel = {
         let element = UILabel()
-        element.font = .systemFont(ofSize: K.FontSize.titleLabelCell, weight: .medium)
+        element.font = UIFont(name: K.Font.medium, size: K.FontSize.titleLabelCell)
         return element
     }()
     

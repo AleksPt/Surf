@@ -48,14 +48,20 @@ extension FavoriteViewController: UITableViewDataSource {
         let dataSourceItem = tableDataSource[indexPath.row]
         cell.configureCell(dataSourceItem)
         cell.selectionStyle = .none
+        cell.delegate = self
         return cell
     }
 }
 
 // MARK: - UITableViewDelegate
 extension FavoriteViewController: UITableViewDelegate {
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        tableView.deselectRow(at: indexPath, animated: false)
+}
+
+// MARK: - CellFavoriteDelegate
+extension FavoriteViewController: CellFavoriteDelegate {
+    func warningDeleteFavorite(_ cell: CellFavorite) {
+        guard let indexPath = tableView.indexPath(for: cell) else { return }
+        showAlert(forRowAt: indexPath.row)
     }
 }
 
@@ -81,5 +87,30 @@ private extension FavoriteViewController {
             $0.leading.trailing.equalToSuperview().inset(16)
             $0.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottom)
         }
+    }
+}
+
+// MARK: - Alert
+private extension FavoriteViewController {
+    func showAlert(forRowAt: Int) {
+        let alert = UIAlertController(
+            title: "Внимание",
+            message: "Вы точно хотите удалить из избранного?",
+            preferredStyle: .alert
+        )
+        
+        let okAction = UIAlertAction(
+            title: "Да, точно",
+            style: .default
+        )
+        
+        let cancelAction = UIAlertAction(
+            title: "Нет",
+            style: .cancel
+        )
+        
+        alert.addAction(cancelAction)
+        alert.addAction(okAction)
+        present(alert, animated: true)
     }
 }

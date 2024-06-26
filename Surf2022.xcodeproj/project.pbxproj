@@ -29,6 +29,10 @@
 		FA6ED7532C2C3C4F004F1B10 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6ED7522C2C3C4F004F1B10 /* ProfileViewController.swift */; };
 		FA6ED7552C2C5FE6004F1B10 /* ProfileData.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6ED7542C2C5FE6004F1B10 /* ProfileData.swift */; };
 		FA6ED7572C2C6445004F1B10 /* CellProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6ED7562C2C6445004F1B10 /* CellProfile.swift */; };
+		FA6ED75E2C2CB981004F1B10 /* SFProText-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FA6ED75B2C2CB981004F1B10 /* SFProText-Medium.ttf */; };
+		FA6ED75F2C2CB981004F1B10 /* SFProText-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FA6ED75C2C2CB981004F1B10 /* SFProText-Regular.ttf */; };
+		FA6ED7602C2CB981004F1B10 /* SFProText-Semibold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FA6ED75D2C2CB981004F1B10 /* SFProText-Semibold.ttf */; };
+		FA6ED7622C2CBFB1004F1B10 /* SFProText-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FA6ED7612C2CBFB1004F1B10 /* SFProText-Light.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -55,6 +59,10 @@
 		FA6ED7522C2C3C4F004F1B10 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		FA6ED7542C2C5FE6004F1B10 /* ProfileData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileData.swift; sourceTree = "<group>"; };
 		FA6ED7562C2C6445004F1B10 /* CellProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellProfile.swift; sourceTree = "<group>"; };
+		FA6ED75B2C2CB981004F1B10 /* SFProText-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFProText-Medium.ttf"; sourceTree = "<group>"; };
+		FA6ED75C2C2CB981004F1B10 /* SFProText-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFProText-Regular.ttf"; sourceTree = "<group>"; };
+		FA6ED75D2C2CB981004F1B10 /* SFProText-Semibold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFProText-Semibold.ttf"; sourceTree = "<group>"; };
+		FA6ED7612C2CBFB1004F1B10 /* SFProText-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFProText-Light.ttf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +109,7 @@
 		FA1DA5F12C23683E00261A08 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				FA6ED75A2C2CB96C004F1B10 /* Fonts */,
 				FA1DA5E62C2366A300261A08 /* Assets.xcassets */,
 				FA1DA5EB2C2366A300261A08 /* Info.plist */,
 			);
@@ -170,6 +179,17 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		FA6ED75A2C2CB96C004F1B10 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				FA6ED75B2C2CB981004F1B10 /* SFProText-Medium.ttf */,
+				FA6ED75C2C2CB981004F1B10 /* SFProText-Regular.ttf */,
+				FA6ED75D2C2CB981004F1B10 /* SFProText-Semibold.ttf */,
+				FA6ED7612C2CBFB1004F1B10 /* SFProText-Light.ttf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -234,8 +254,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FA6ED75E2C2CB981004F1B10 /* SFProText-Medium.ttf in Resources */,
 				FA1DA5E72C2366A300261A08 /* Assets.xcassets in Resources */,
 				FA1DA5EA2C2366A300261A08 /* Base in Resources */,
+				FA6ED7622C2CBFB1004F1B10 /* SFProText-Light.ttf in Resources */,
+				FA6ED7602C2CB981004F1B10 /* SFProText-Semibold.ttf in Resources */,
+				FA6ED75F2C2CB981004F1B10 /* SFProText-Regular.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
