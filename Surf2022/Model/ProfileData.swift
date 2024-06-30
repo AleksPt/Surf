@@ -17,16 +17,15 @@ struct ProfileData {
     let email: String
     
     static func getProfile() -> ProfileData {
-        
-            ProfileData(
-                avatar: "avatar",
-                name: "Браун",
-                surname: "Эммет",
-                status: "Я считаю, что если уж делать машину времени, то она должна выглядеть стильно!",
-                city: "Hill Valley",
-                phone: "88-88-88",
-                email: "doc@backtothefuture.com"
-            )
+        ProfileData(
+            avatar: "avatar",
+            name: "Браун",
+            surname: "Эммет",
+            status: "Я считаю, что если уж делать машину времени, то она должна выглядеть стильно!",
+            city: "Hill Valley",
+            phone: "88-88-88",
+            email: "doc@backtothefuture.com"
+        )
         
     }
 }
